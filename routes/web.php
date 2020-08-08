@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('beranda', 'BerandaController@index');
+
+    // Master Kategori
+    Route::get('master/kategori', 'KategoriController@index');
 });
 
 Route::get('keluar', function () {
