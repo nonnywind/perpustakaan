@@ -3,6 +3,9 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            <p>
+                <a href="{{url('master/kategori/add')}}" class="btn btn-flat btn-sm btn-primary"><i class="fa fa-plus"></i> Tambah Kategori</a>
+            </p>
             <div class="box box-warning">
                 <div class="box-header">
                     
