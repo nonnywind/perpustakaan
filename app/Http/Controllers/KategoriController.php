@@ -31,6 +31,8 @@ class KategoriController extends Controller
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
+        \Session::flash('sukses', 'Data kategori berhasil ditambah');
+
         return redirect('master/kategori');
     }
 }

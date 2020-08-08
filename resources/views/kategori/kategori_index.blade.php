@@ -34,3 +34,21 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+<script type="text/javascript">
+    $(document).ready(function(){
+        var flash = "{{ Session::has('sukses') }}";
+        if(flash){
+            var pesan = "{{ Session::get('sukses') }}"
+            swal("Sukses", pesan, "success");
+        }
+ 
+        var gagal = "{{ Session::has('gagal') }}";
+        if(gagal){
+            var pesan = "{{ Session::get('gagal') }}"
+            swal("Error", pesan, "error");
+        }
+    })
+</script>
+@endsection
