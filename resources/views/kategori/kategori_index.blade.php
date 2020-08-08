@@ -45,7 +45,7 @@
         var flash = "{{ Session::has('sukses') }}";
         if(flash){
             var pesan = "{{ Session::get('sukses') }}"
-            swal("Sukses", pesan, "success");
+            alert(pesan);
         }
  
         var gagal = "{{ Session::has('gagal') }}";
