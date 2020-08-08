@@ -22,6 +22,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('master/kategori', 'KategoriController@index');
     Route::get('master/kategori/add', 'KategoriController@add');
     Route::post('master/kategori/add', 'KategoriController@store');
+    Route::get('master/kategori/{id}', 'KategoriController@edit');
+    Route::put('master/kategori/{id}', 'KategoriController@update');
 });
 
 Route::get('keluar', function () {

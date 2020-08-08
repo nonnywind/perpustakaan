@@ -35,4 +35,24 @@ class KategoriController extends Controller
 
         return redirect('master/kategori');
     }
+
+    public function edit($id)
+    {
+        $dt = \DB::table('m_kategori')->where('id', $id)->first();
+        $title = 'Edit Kategori';
+
+        return view('kategori.kategori_edit', compact('dt', 'title'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $nama = $request->nama;
+
+        \DB::table('m_kategori')->where('id', $id)->update([
+            'nama' => $nama,
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        return redirect('master/kategori');
+    }
 }

@@ -17,6 +17,7 @@
                                 <th>#</th>
                                 <th>Nama Kategori</th>
                                 <th>Created At</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,6 +26,9 @@
                                     <td>{{$i+1}}</td>
                                     <td>{{$dt->nama}}</td>
                                     <td>{{$dt->created_at}}</td>
+                                    <td>
+                                        <div style="width:60px"><a href="{{url('master/kategori/'.$dt->id)}}" class="btn btn-warning btn-xs btn-edit" id="edit"><i class="fa fa-pencil-square-o"></i></a> <button class="btn btn-default btn-xs" id="delete"><i class="fa fa-trash-o"></i></button></div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
