@@ -12,9 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('beranda');
+});
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('beranda', 'BerandaController@index');
+});
+
+Route::get('keluar', function () {
+    \Auth::logout();
+    return redirect('login');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function () {
+    return redirect('beranda');
+});
