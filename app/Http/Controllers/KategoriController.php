@@ -57,4 +57,13 @@ class KategoriController extends Controller
 
         return redirect('master/kategori');
     }
+
+    public function delete($id)
+    {
+        \DB::table('m_kategori')->where('id', $id)->delete();
+
+        \Session::flash('sukses', 'Data kategori berhasil dihapus');
+
+        return redirect('master/kategori');
+    }
 }
