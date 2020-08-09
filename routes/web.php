@@ -25,6 +25,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('master/kategori/{id}', 'KategoriController@edit');
     Route::put('master/kategori/{id}', 'KategoriController@update');
     Route::delete('master/kategori/{id}', 'KategoriController@delete');
+
+    // Master buku
+    Route::get('master/buku', 'BukuController@index');
 });
 
 Route::get('keluar', function () {
