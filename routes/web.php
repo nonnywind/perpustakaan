@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('master/buku/{id}', 'BukuController@edit');
     Route::put('master/buku/{id}', 'BukuController@update');
     Route::delete('master/buku/{id}', 'BukuController@delete');
+    Route::get('master/buku/status/{id}', 'BukuController@status');
 });
 
 Route::get('keluar', function () {

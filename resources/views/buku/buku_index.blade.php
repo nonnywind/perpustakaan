@@ -16,11 +16,13 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Status</th>
                                 <th>Gambar</th>
                                 <th>Judul</th>
                                 <th>Kategori</th>
                                 <th>Penulis</th>
                                 <th>Stock</th>
+                                <th>Status</th>
                                 <th>Created At</th>
                                 <th>Action</th>
                             </tr>
@@ -29,11 +31,19 @@
                             @foreach ($data as $i=>$dt)
                             <tr>
                                 <td>{{$i+1}}</td>
+                                <td>
+                                    @if ($dt->status == 1)
+                                        <a href="{{url('master/buku/status/'.$dt->id)}}" class="btn btn-xs btn-danger">Non-Aktifkan</a>
+                                    @else
+                                        <a href="{{url('master/buku/status/'.$dt->id)}}" class="btn btn-sm btn-success">Aktifkan</a>
+                                    @endif
+                                </td>
                                 <td><img src="{{asset('uploads/'.$dt->gambar)}}" style="width: 50px;"></td>
                                 <td>{{$dt->judul}}</td>
                                 <td>{{$dt->nama}}</td>
                                 <td>{{$dt->penulis}}</td>
                                 <td>{{$dt->stock}}</td>
+                                <td><label class="label {{($dt->status == 1) ? 'label-success' : 'label-danger'}}">{{($dt->status == 1) ? 'Aktif' : 'Tidak Aktif'}}</label></td>
                                 <td>{{$dt->created_at}}</td>
                                 <td>
                                     <p>

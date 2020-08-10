@@ -9,7 +9,7 @@ class BukuController extends Controller
     public function index()
     {
         $title = 'List Buku';
-        $data = \DB::table('m_buku as b')->join('m_kategori as k', 'b.kategori', '=', 'k.id')->select('b.gambar', 'b.judul', 'k.nama', 'b.penulis', 'b.stock', 'b.created_at', 'b.id')->get();
+        $data = \DB::table('m_buku as b')->join('m_kategori as k', 'b.kategori', '=', 'k.id')->select('b.gambar', 'b.judul', 'k.nama', 'b.penulis', 'b.stock', 'b.created_at', 'b.id', 'b.status')->get();
 
         return view('buku.buku_index', compact('title', 'data'));
     }
@@ -106,6 +106,26 @@ class BukuController extends Controller
         \DB::table('m_buku')->where('id', $id)->delete();
 
         \Session::flash('sukses', 'Buku berhasil dihapus');
+
+        return redirect('master/buku');
+    }
+
+    public function status($id)
+    {
+        $data = \DB::table('m_buku')->where('id', $id)->first();
+        $status_sekarang = $data->status;
+
+        if ($status_sekarang == 1) {
+            \DB::table('m_buku')->where('id', $id)->update([
+                'status' => 0
+            ]);
+        } else {
+            \DB::table('m_buku')->where('id', $id)->update([
+                'status' => 1
+            ]);
+        }
+
+        \Session::flash('sukses', 'Status berhasil diubah');
 
         return redirect('master/buku');
     }
