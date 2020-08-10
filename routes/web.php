@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('master/buku', 'BukuController@index');
     Route::get('master/buku/add', 'BukuController@add');
     Route::post('master/buku/add', 'BukuController@store');
+    Route::get('master/buku/{id}', 'BukuController@edit');
+    Route::put('master/buku/{id}', 'BukuController@update');
 });
 
 Route::get('keluar', function () {

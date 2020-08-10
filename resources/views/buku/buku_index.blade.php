@@ -22,6 +22,7 @@
                                 <th>Penulis</th>
                                 <th>Stock</th>
                                 <th>Created At</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,6 +35,9 @@
                                 <td>{{$dt->penulis}}</td>
                                 <td>{{$dt->stock}}</td>
                                 <td>{{$dt->created_at}}</td>
+                                <td>
+                                    <a href="{{url('master/buku/'.$dt->id)}}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-pencil"></i></a>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
