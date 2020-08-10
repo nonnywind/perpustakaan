@@ -100,4 +100,13 @@ class BukuController extends Controller
 
         return redirect('master/buku');
     }
+
+    public function delete($id)
+    {
+        \DB::table('m_buku')->where('id', $id)->delete();
+
+        \Session::flash('sukses', 'Buku berhasil dihapus');
+
+        return redirect('master/buku');
+    }
 }
