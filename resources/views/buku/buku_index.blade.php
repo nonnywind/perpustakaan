@@ -8,7 +8,7 @@
                 <a href="{{url('master/buku/add')}}" class="btn btn-flat btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Buku</a>
                 <a href="{{url('master/buku')}}" class="btn btn-flat btn-sm btn-primary">All Buku</a>
                 <a href="{{url('master/buku/kosong')}}" class="btn btn-flat btn-sm btn-danger">Buku Stock Habis</a>
-
+                <a href="{{url('master/buku/nonaktif')}}" class="btn btn-flat btn-sm btn-info">Buku Nonaktif</a>
             </p>
             <div class="box box-warning">
                 <div class="box-header">
@@ -20,6 +20,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Status</th>
+                                <th>Pinjam</th>
                                 <th>Gambar</th>
                                 <th>Judul</th>
                                 <th>Kategori</th>
@@ -40,6 +41,9 @@
                                     @else
                                         <a href="{{url('master/buku/status/'.$dt->id)}}" class="btn btn-sm btn-success">Aktifkan</a>
                                     @endif
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn-flat btn-sm btn-primary">Pinjam Buku</a>
                                 </td>
                                 <td><img src="{{asset('uploads/'.$dt->gambar)}}" style="width: 50px;"></td>
                                 <td>{{$dt->judul}}</td>

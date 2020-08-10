@@ -22,6 +22,14 @@ class BukuController extends Controller
         return view('buku.buku_index', compact('title', 'data'));
     }
 
+    public function nonaktif()
+    {
+        $title = 'List Buku Nonaktif';
+        $data = \DB::table('m_buku as b')->join('m_kategori as k', 'b.kategori', '=', 'k.id')->select('b.gambar', 'b.judul', 'k.nama', 'b.penulis', 'b.stock', 'b.created_at', 'b.id', 'b.status')->where('b.status', '!=', 1)->get();
+
+        return view('buku.buku_index', compact('title', 'data'));
+    }
+
     public function add()
     {
         $title = 'Tambah Buku';

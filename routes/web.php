@@ -29,12 +29,17 @@ Route::group(['middleware' => 'auth'], function () {
     // Master buku
     Route::get('master/buku', 'BukuController@index');
     Route::get('master/buku/kosong', 'BukuController@kosong');
+    Route::get('master/buku/nonaktif', 'BukuController@nonaktif');
     Route::get('master/buku/add', 'BukuController@add');
     Route::post('master/buku/add', 'BukuController@store');
     Route::get('master/buku/{id}', 'BukuController@edit');
     Route::put('master/buku/{id}', 'BukuController@update');
     Route::delete('master/buku/{id}', 'BukuController@delete');
     Route::get('master/buku/status/{id}', 'BukuController@status');
+
+    // Peminjaman Buku
+
+    route::get('pinjam-buku/{id}', 'PeminjamanController@store');
 });
 
 Route::get('keluar', function () {
