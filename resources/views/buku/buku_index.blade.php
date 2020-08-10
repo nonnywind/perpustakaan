@@ -43,7 +43,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-flat btn-sm btn-primary">Pinjam Buku</a>
+                                    <a href="{{url('pinjam-buku/'.$dt->id)}}" class="btn btn-flat btn-sm btn-primary">Pinjam Buku</a>
                                 </td>
                                 <td><img src="{{asset('uploads/'.$dt->gambar)}}" style="width: 50px;"></td>
                                 <td>{{$dt->judul}}</td>
