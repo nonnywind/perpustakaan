@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Master buku
     Route::get('master/buku', 'BukuController@index');
+    Route::get('master/buku/kosong', 'BukuController@kosong');
     Route::get('master/buku/add', 'BukuController@add');
     Route::post('master/buku/add', 'BukuController@store');
     Route::get('master/buku/{id}', 'BukuController@edit');

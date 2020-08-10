@@ -6,6 +6,9 @@
             <p>
                 <button class="btn btn-flat btn-sm btn-warning btn-refresh"><i class="fa fa-refresh"></i> Refresh</button>
                 <a href="{{url('master/buku/add')}}" class="btn btn-flat btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Buku</a>
+                <a href="{{url('master/buku')}}" class="btn btn-flat btn-sm btn-primary">All Buku</a>
+                <a href="{{url('master/buku/kosong')}}" class="btn btn-flat btn-sm btn-danger">Buku Stock Habis</a>
+
             </p>
             <div class="box box-warning">
                 <div class="box-header">
