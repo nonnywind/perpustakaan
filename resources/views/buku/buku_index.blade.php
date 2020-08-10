@@ -5,6 +5,7 @@
         <div class="col-md-12">
             <p>
                 <button class="btn btn-flat btn-sm btn-warning btn-refresh"><i class="fa fa-refresh"></i> Refresh</button>
+                <a href="{{url('master/buku/add')}}" class="btn btn-flat btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Buku</a>
             </p>
             <div class="box box-warning">
                 <div class="box-header">
@@ -17,6 +18,7 @@
                                 <th>#</th>
                                 <th>Gambar</th>
                                 <th>Judul</th>
+                                <th>Kategori</th>
                                 <th>Penulis</th>
                                 <th>Stock</th>
                                 <th>Created At</th>
@@ -26,8 +28,9 @@
                             @foreach ($data as $i=>$dt)
                             <tr>
                                 <td>{{$i+1}}</td>
-                                <td></td>
+                                <td><img src="{{asset('uploads/'.$dt->gambar)}}" style="width: 50px;"></td>
                                 <td>{{$dt->judul}}</td>
+                                <td>{{$dt->nama}}</td>
                                 <td>{{$dt->penulis}}</td>
                                 <td>{{$dt->stock}}</td>
                                 <td>{{$dt->created_at}}</td>
