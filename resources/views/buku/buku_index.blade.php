@@ -47,6 +47,12 @@
 @section('scripts')
     <script type="text/javascript">
         $(document).ready(function(){
+            var flash = "{{ Session::has('sukses') }}";
+            if(flash){
+                var pesan = "{{ Session::get('sukses') }}"
+                alert(pesan);
+            }
+
             $('.btn-refresh').click(function(e){
                 e.preventDefault();
                 location.reload();

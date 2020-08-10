@@ -46,6 +46,8 @@ class BukuController extends Controller
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
+        \Session::flash('sukses', 'Buku berhasil ditambahkan');
+
         return redirect('master/buku');
     }
 }
