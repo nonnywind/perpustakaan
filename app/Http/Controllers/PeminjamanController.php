@@ -8,12 +8,22 @@ class PeminjamanController extends Controller
 {
     public function store($id)
     {
-        \DB::table('peminjaman')->where('id', $id)->insert([
-            'buku' => $id,
-            'user' => \Auth::user()->id,
-            'created_at' => date('Y-m-d H:i:s')
-        ]);
+        $cek = \DB::table('m_buku')->where('id', $id)->where('stock', '>', 0)->where('status', 1)->count();
 
-        return redirect('master/buku');
+        if ($cek > 0) {
+            \DB::table('peminjaman')->where('id', $id)->insert([
+                'buku' => $id,
+                'user' => \Auth::user()->id,
+                'created_at' => date('Y-m-d H:i:s')
+            ]);
+
+            \Session::flash('sukses', 'Buku berhasil dipinjam');
+
+            return redirect('master/buku');
+        } else {
+            \Session::flash('gagal', 'Buku sudah habis atau tidak aktif');
+
+            return redirect('master/buku');
+        }
     }
 }

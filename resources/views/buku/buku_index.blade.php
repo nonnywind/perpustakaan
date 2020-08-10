@@ -111,6 +111,12 @@
                 alert(pesan);
             }
 
+            var flash = "{{ Session::has('gagal') }}";
+            if(flash){
+                var pesan = "{{ Session::get('gagal') }}"
+                alert(pesan);
+            }
+
             $('.btn-refresh').click(function(e){
                 e.preventDefault();
                 location.reload();
