@@ -53,4 +53,13 @@ class PeminjamanController extends Controller
 
         return redirect('pinjam-buku');
     }
+
+    public function tolak($id)
+    {
+        Peminjaman::where('id', $id)->update([
+            'status' => 2
+        ]);
+
+        return redirect('pinjam-buku');
+    }
 }

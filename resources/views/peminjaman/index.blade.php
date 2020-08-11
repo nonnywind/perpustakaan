@@ -33,11 +33,22 @@
                            <td>{{ $dt->buku_r->penulis }}</td>
                            <td>{{ $dt->created_at }}</td>
                            @if ($dt->status == null)
-                               <td><label class="label label-warning">Belum Disetujui</label></td>
+                               <td><label class="label label-warning">Menunggu Verifikasi</label></td>
                             @elseif ($dt->status == 1)
                                <td><label class="label label-success">Disetujui</label></td>
+                            @elseif ($dt->status == 2)
+                                <td><label class="label label-danger">Ditolak</label></td>
                            @endif
                            @if ($dt->status == null)
+                            <td>
+                                <a href="{{url('pinjam-buku/setujui/'.$dt->id)}}" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-check"></i> Setujui</a>
+                                <a href="{{url('pinjam-buku/tolak/'.$dt->id)}}" class="btn btn-flat btn-xs btn-danger"><i class="fa"></i> Tolak</a>
+                            </td>
+                            @elseif($dt->status == 1)
+                            <td>
+                                <a href="{{url('pinjam-buku/tolak/'.$dt->id)}}" class="btn btn-flat btn-xs btn-danger"><i class="fa"></i> Tolak</a>
+                            </td>
+                            @elseif($dt->status == 2)
                             <td>
                                 <a href="{{url('pinjam-buku/setujui/'.$dt->id)}}" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-check"></i> Setujui</a>
                             </td>
