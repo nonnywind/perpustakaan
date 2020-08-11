@@ -20,6 +20,8 @@
                            <th>Buku</th>
                            <th>Penulis Buku</th>
                            <th>Created At</th>
+                           <th>Status Peminjaman</th>
+                           <th>Action</th>
                        </tr>
                    </thead>
                    <tbody>
@@ -30,6 +32,16 @@
                            <td>{{ $dt->buku_r->judul }}</td>
                            <td>{{ $dt->buku_r->penulis }}</td>
                            <td>{{ $dt->created_at }}</td>
+                           @if ($dt->status == null)
+                               <td><label class="label label-warning">Belum Disetujui</label></td>
+                            @elseif ($dt->status == 1)
+                               <td><label class="label label-success">Disetujui</label></td>
+                           @endif
+                           @if ($dt->status == null)
+                            <td>
+                                <a href="{{url('pinjam-buku/setujui/'.$dt->id)}}" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-check"></i> Setujui</a>
+                            </td>
+                           @endif
                         </tr>
                        @endforeach
                    </tbody>

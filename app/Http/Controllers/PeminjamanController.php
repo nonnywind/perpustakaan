@@ -44,4 +44,13 @@ class PeminjamanController extends Controller
             return redirect('master/buku');
         }
     }
+
+    public function setujui($id)
+    {
+        Peminjaman::where('id', $id)->update([
+            'status' => 1
+        ]);
+
+        return redirect('pinjam-buku');
+    }
 }
