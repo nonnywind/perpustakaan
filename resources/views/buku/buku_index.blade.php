@@ -47,7 +47,7 @@
                                 </td>
                                 <td><img src="{{asset('uploads/'.$dt->gambar)}}" style="width: 50px;"></td>
                                 <td>{{$dt->judul}}</td>
-                                <td>{{$dt->nama}}</td>
+                                <td>{{$dt->kategori_r->nama}}</td>
                                 <td>{{$dt->penulis}}</td>
                                 <td>{{$dt->stock}}</td>
                                 <td><label class="label {{($dt->status == 1) ? 'label-success' : 'label-danger'}}">{{($dt->status == 1) ? 'Aktif' : 'Tidak Aktif'}}</label></td>

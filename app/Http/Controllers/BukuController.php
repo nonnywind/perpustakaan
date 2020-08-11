@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\M_buku;
+
 class BukuController extends Controller
 {
     public function index()
     {
         $title = 'List Buku';
-        $data = \DB::table('m_buku as b')->join('m_kategori as k', 'b.kategori', '=', 'k.id')->select('b.gambar', 'b.judul', 'k.nama', 'b.penulis', 'b.stock', 'b.created_at', 'b.id', 'b.status')->get();
+        // $data = \DB::table('m_buku as b')->join('m_kategori as k', 'b.kategori', '=', 'k.id')->select('b.gambar', 'b.judul', 'k.nama', 'b.penulis', 'b.stock', 'b.created_at', 'b.id', 'b.status')->get();
+        $data = M_buku::get();
 
         return view('buku.buku_index', compact('title', 'data'));
     }
