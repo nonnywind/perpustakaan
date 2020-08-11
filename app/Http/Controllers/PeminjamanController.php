@@ -4,8 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Peminjaman;
+
 class PeminjamanController extends Controller
 {
+    public function index()
+    {
+        $title = 'Peminjaman Buku All';
+        $data = Peminjaman::get();
+
+        return view('peminjaman.index', compact('title', 'data'));
+    }
+
     public function store($id)
     {
         $cek = \DB::table('m_buku')->where('id', $id)->where('stock', '>', 0)->where('status', 1)->count();

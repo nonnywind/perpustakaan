@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('master/buku/status/{id}', 'BukuController@status');
 
     // Peminjaman Buku
-
+    Route::get('pinjam-buku', 'PeminjamanController@index');
     route::get('pinjam-buku/{id}', 'PeminjamanController@store');
 });
 
