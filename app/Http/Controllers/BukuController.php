@@ -20,7 +20,8 @@ class BukuController extends Controller
     public function kosong()
     {
         $title = 'List Buku Stock Habis';
-        $data = \DB::table('m_buku as b')->join('m_kategori as k', 'b.kategori', '=', 'k.id')->select('b.gambar', 'b.judul', 'k.nama', 'b.penulis', 'b.stock', 'b.created_at', 'b.id', 'b.status')->where('b.stock', '<', 1)->get();
+        // $data = \DB::table('m_buku as b')->join('m_kategori as k', 'b.kategori', '=', 'k.id')->select('b.gambar', 'b.judul', 'k.nama', 'b.penulis', 'b.stock', 'b.created_at', 'b.id', 'b.status')->where('b.stock', '<', 1)->get();
+        $data = M_buku::where('stock', '<', 1)->get();
 
         return view('buku.buku_index', compact('title', 'data'));
     }
