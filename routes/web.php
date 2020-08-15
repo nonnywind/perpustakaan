@@ -47,6 +47,15 @@ Route::group(['middleware' => 'auth'], function () {
     // Pengembalian buku
     Route::get('pengembalian-buku', 'PengembalianController@index');
     Route::get('pengembalian-buku/{id}', 'PengembalianController@pengembalian');
+
+    // Manage anggota
+    Route::get('manage-anggota', 'AnggotaController@index');
+    Route::get('manage-anggota/add', 'AnggotaController@add');
+    Route::post('manage-anggota/add', 'AnggotaController@store');
+
+    Route::get('manage-anggota/{id}', 'AnggotaController@edit');
+    Route::put('manage-anggota/{id}', 'AnggotaController@update');
+    Route::get('manage-anggota/delete/{id}', 'AnggotaController@delete');
 });
 
 Route::get('keluar', function () {

@@ -12,7 +12,7 @@
                 </p>
             </div>
             <div class="box-body">
-               <table class="table table-hover">
+               <table class="table table-hover myTable">
                    <thead>
                        <tr>
                            <th>#</th>
