@@ -43,6 +43,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('pinjam-buku/setujui/{id}', 'PeminjamanController@setujui');
     Route::get('pinjam-buku/tolak/{id}', 'PeminjamanController@tolak');
+
+    // Pengembalian buku
+    Route::get('pengembalian-buku', 'PengembalianController@index');
+    Route::get('pengembalian-buku/{id}', 'PengembalianController@pengembalian');
 });
 
 Route::get('keluar', function () {
