@@ -17,4 +17,9 @@ class Peminjaman extends Model
     {
         return $this->belongsTo('App\User', 'user');
     }
+
+    public function status_r()
+    {
+        return $this->belongsTo('App\Models\M_status', 'status', 'kode')->withDefault(['nama' => 'Menunggu Verifikasi']);
+    }
 }

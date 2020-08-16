@@ -56,6 +56,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('manage-anggota/{id}', 'AnggotaController@edit');
     Route::put('manage-anggota/{id}', 'AnggotaController@update');
     Route::get('manage-anggota/delete/{id}', 'AnggotaController@delete');
+
+    // Laporan
+    Route::get('laporan', 'LaporanController@index');
 });
 
 Route::get('keluar', function () {
