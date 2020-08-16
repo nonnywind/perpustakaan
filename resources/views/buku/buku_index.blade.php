@@ -5,7 +5,11 @@
         <div class="col-md-12">
             <p>
                 <button class="btn btn-flat btn-sm btn-warning btn-refresh"><i class="fa fa-refresh"></i> Refresh</button>
+
+                @if (\Auth::user()->status == 1)
                 <a href="{{url('master/buku/add')}}" class="btn btn-flat btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Buku</a>
+                @endif
+                
                 <a href="{{url('master/buku')}}" class="btn btn-flat btn-sm btn-primary">All Buku</a>
                 <a href="{{url('master/buku/kosong')}}" class="btn btn-flat btn-sm btn-danger">Buku Stock Habis</a>
                 <a href="{{url('master/buku/nonaktif')}}" class="btn btn-flat btn-sm btn-info">Buku Nonaktif</a>
@@ -19,7 +23,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+
+                                @if (\Auth::user()->status == 1)
                                 <th>Status</th>
+                                @endif
                                 <th>Pinjam</th>
                                 <th>Gambar</th>
                                 <th>Judul</th>
@@ -28,13 +35,17 @@
                                 <th>Stock</th>
                                 <th>Status</th>
                                 <th>Created At</th>
+                                @if (\Auth::user()->status == 1)
                                 <th>Action</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $i=>$dt)
                             <tr>
                                 <td>{{$i+1}}</td>
+
+                                @if (\Auth::user()->status == 1)
                                 <td>
                                     @if ($dt->status == 1)
                                         <a href="{{url('master/buku/status/'.$dt->id)}}" class="btn btn-xs btn-danger">Non-Aktifkan</a>
@@ -42,6 +53,8 @@
                                         <a href="{{url('master/buku/status/'.$dt->id)}}" class="btn btn-sm btn-success">Aktifkan</a>
                                     @endif
                                 </td>
+                                @endif
+                                
                                 <td>
                                     <a href="{{url('pinjam-buku/'.$dt->id)}}" class="btn btn-flat btn-sm btn-primary">Pinjam Buku</a>
                                 </td>
@@ -52,12 +65,16 @@
                                 <td>{{$dt->stock}}</td>
                                 <td><label class="label {{($dt->status == 1) ? 'label-success' : 'label-danger'}}">{{($dt->status == 1) ? 'Aktif' : 'Tidak Aktif'}}</label></td>
                                 <td>{{$dt->created_at}}</td>
+
+                                @if (\Auth::user()->status == 1)
                                 <td>
                                     <p>
                                         <a href="{{url('master/buku/'.$dt->id)}}" class="btn btn-flat btn-xs btn-warning"><i class="fa fa-pencil"></i></a>
                                         <a href="{{url('master/buku/'.$dt->id)}}" class="btn btn-flat btn-xs btn-danger btn-hapus"><i class="fa fa-trash"></i></a>
                                     </p>
                                 </td>
+                                @endif
+                                
                             </tr>
                             @endforeach
                         </tbody>

@@ -21,7 +21,9 @@
                            <th>Penulis Buku</th>
                            <th>Created At</th>
                            <th>Status Peminjaman</th>
+                           @if (\Auth::user()->status == 1)
                            <th>Action</th>
+                           @endif
                        </tr>
                    </thead>
                    <tbody>
@@ -39,6 +41,8 @@
                             @elseif ($dt->status == 2)
                                 <td><label class="label label-danger">Ditolak</label></td>
                            @endif
+
+                           @if (\Auth::user()->status == 1)
                            @if ($dt->status == null)
                             <td>
                                 <a href="{{url('pinjam-buku/setujui/'.$dt->id)}}" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-check"></i> Setujui</a>
@@ -52,6 +56,7 @@
                             <td>
                                 <a href="{{url('pinjam-buku/setujui/'.$dt->id)}}" class="btn btn-flat btn-xs btn-primary"><i class="fa fa-check"></i> Setujui</a>
                             </td>
+                           @endif
                            @endif
                         </tr>
                        @endforeach

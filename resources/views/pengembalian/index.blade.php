@@ -21,7 +21,9 @@
                            <th>Penulis Buku</th>
                            <th>Status</th>
                            <th>Created At</th>
+                           @if (\Auth::user()->status == 1)
                            <th>Action</th>
+                           @endif
                        </tr>
                    </thead>
                    <tbody>
@@ -37,12 +39,15 @@
                             <td><label class="label label-warning">Sudah dikembalikan</label></td>
                            @endif
                            <td>{{ $dt->created_at }}</td>
+
+                           @if (\Auth::user()->status == 1)
                            @if ($dt->status == 1)
                             <td>
                                 <a href="{{url('pengembalian-buku/'.$dt->id)}}" class="btn btn-primary btn-flat">Kembalikan</a>
                             </td> 
                            @else
                             <td></td>
+                           @endif
                            @endif
                            
                         </tr>

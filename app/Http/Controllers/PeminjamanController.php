@@ -11,7 +11,12 @@ class PeminjamanController extends Controller
     public function index()
     {
         $title = 'Peminjaman Buku All';
-        $data = Peminjaman::get();
+
+        if (\Auth::user()->status == 1) {
+            $data = Peminjaman::get();
+        } else {
+            $data = Peminjaman::where('user', \Auth::user()->id)->get();
+        }
 
         return view('peminjaman.index', compact('title', 'data'));
     }

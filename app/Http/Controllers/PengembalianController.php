@@ -12,7 +12,12 @@ class PengembalianController extends Controller
     public function index()
     {
         $title = 'Pengembalian Buku';
-        $data = Peminjaman::whereIn('status', [1, 3])->get();
+
+        if (\Auth::user()->status == 1) {
+            $data = Peminjaman::whereIn('status', [1, 3])->get();
+        } else {
+            $data = Peminjaman::whereIn('status', [1, 3])->where('user', \Auth::user()->id)->get();
+        }
 
         return view('pengembalian.index', compact('title', 'data'));
     }
