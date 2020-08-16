@@ -22,7 +22,15 @@
                       <label for="pwd">Tanggal akhir:</label>
                       <input type="text" name="tanggal_akhir" class="form-control datepicker" id="pwd" autocomplete="off" value="{{date('Y-m-d')}}">
                     </div>
-                    
+                    <div class="form-group">
+                        <label for="pwd">User:</label>
+                        <select name="user" class="form-control select2">
+                            <option value="all">All Anggota</option>
+                            @foreach ($users as $us)
+                                <option value="{{$us->id}}">{{$us->name}}</option>
+                            @endforeach
+                        </select>
+                   </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                   </form>
                <table class="table table-hover myTable">
