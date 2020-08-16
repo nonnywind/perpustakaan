@@ -29,7 +29,8 @@ class PeminjamanController extends Controller
             \DB::table('peminjaman')->where('id', $id)->insert([
                 'buku' => $id,
                 'user' => \Auth::user()->id,
-                'created_at' => date('Y-m-d H:i:s')
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
             ]);
 
             $buku = \DB::table('m_buku')->where('id', $id)->first();

@@ -59,6 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Laporan
     Route::get('laporan', 'LaporanController@index');
+    Route::get('laporan/periode', 'LaporanController@periode');
 });
 
 Route::get('keluar', function () {
